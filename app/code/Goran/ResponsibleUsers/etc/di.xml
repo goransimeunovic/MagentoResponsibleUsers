@@ -1,0 +1,46 @@
+<?xml version="1.0"?><!--
+/**
+ *
+ * Goran_ResponsibleUsers Magento 2 extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ *
+ * @category Goran
+ * @package Goran_ResponsibleUsers
+ * @copyright Copyright (c) 2022 Goran
+ * @license http://www.magento.com
+ * @author Goran Simeunovic
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Goran\ResponsibleUsers\Api\Data\UserInterface" type="Goran\ResponsibleUsers\Model\User"/>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="responsibleusers_user_listing_data_source" xsi:type="string">Goran\ResponsibleUsers\Model\ResourceModel\User\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Goran\ResponsibleUsers\Model\ResourceModel\User\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">goran_responsible_user_list</argument>
+            <argument name="resourceModel" xsi:type="string">Goran\ResponsibleUsers\Model\ResourceModel\User</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="product_listing.product_listing_data_source" xsi:type="string">Goran\ResponsibleUsers\Model\ResourceModel\ResponsibleUser\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Goran\ResponsibleUsers\Model\ResourceModel\ResponsibleUse\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">catalog_product_entity</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\Catalog\Model\ResourceModel\Product</argument>
+        </arguments>
+    </virtualType>
+</config>

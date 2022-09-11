@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * Goran_ResponsibleUsers Magento 2 extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ *
+ * @category Goran
+ * @package Goran_ResponsibleUsers
+ * @copyright Copyright (c) 2022 Goran
+ * @license http://www.magento.com
+ * @author Goran Simeunovic
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::system">
+                    <resource id="Magento_User::system_acl" title="Permissions" translate="title" sortOrder="60">
+                        <resource id="Goran_ResponsibleUsers::responsibleusers" title="Responsible Users" translate="title" sortOrder="40" />
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

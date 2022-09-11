@@ -1,0 +1,23 @@
+<?xml version="1.0"?><!--
+/**
+ *
+ * Goran_ResponsibleUsers Magento 2 extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ *
+ * @category Goran
+ * @package Goran_ResponsibleUsers
+ * @copyright Copyright (c) 2022 Goran
+ * @license http://www.magento.com
+ * @author Goran Simeunovic
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Goran_ResponsibleUsers::responsible_users" title="Responsible Users" translate="title" module="Goran_ResponsibleUsers" sortOrder="40" parent="Magento_User::system_acl" action="responsibleusers/user" resource="Goran_ResponsibleUsers::responsibleusers"/>
+    </menu>
+</config>
+

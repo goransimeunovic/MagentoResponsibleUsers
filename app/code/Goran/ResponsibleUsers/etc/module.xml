@@ -1,0 +1,25 @@
+<?xml version="1.0"?><!--
+/**
+ *
+ * Goran_ResponsibleUser Magento 2 extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ *
+ * @category Goran
+ * @package Goran_ResponsibleUser
+ * @copyright Copyright (c) 2022 Goran
+ * @license http://www.magento.com
+ * @author Goran Simeunovic
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Goran_ResponsibleUsers" setup_version="2.0.0">
+        <sequence>
+            <module name="Magento_Departments"/>
+        </sequence>
+    </module>
+</config>
+

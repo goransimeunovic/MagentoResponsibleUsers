@@ -1,0 +1,24 @@
+<?xml version="1.0"?><!--
+/**
+ *
+ * Goran_Departments Magento 2 extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ *
+ * @category Goran
+ * @package Goran_Departments
+ * @copyright Copyright (c) 2022 Goran
+ * @license http://www.magento.com
+ * @author Goran Simeunovic
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="departments" frontName="departments">
+            <module name="Goran_Departments" before="Magento_Backend"/>
+        </route>
+    </router>
+</config>

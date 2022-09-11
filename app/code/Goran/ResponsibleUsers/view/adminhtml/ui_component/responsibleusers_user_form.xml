@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">responsibleusers_user_form.user_form.user_form.user_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">User</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <item name="back" xsi:type="string">Goran\ResponsibleUsers\Block\Adminhtml\User\Edit\BackButton</item>
+            <item name="delete" xsi:type="string">Goran\ResponsibleUsers\Block\Adminhtml\User\Edit\DeleteButton</item>
+            <item name="save" xsi:type="string">Goran\ResponsibleUsers\Block\Adminhtml\User\Edit\SaveButton</item>
+        </buttons>
+        <namespace>responsibleusers_user_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>responsibleusers_user_form.user_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="user_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="responsibleusers/user/save"/>
+        </settings>
+        <dataProvider class="Goran\ResponsibleUsers\Model\User\DataProvider" name="user_form_data_source">
+            <settings>
+                <primaryFieldName>user_id</primaryFieldName>
+                <requestFieldName>id</requestFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label translate="true">User Details</label>
+        </settings>
+        <field name="user_id" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">user</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>user_id</dataScope>
+            </settings>
+        </field>
+        <field name="firstname" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">user</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Firstname</label>
+                <dataScope>firstname</dataScope>
+            </settings>
+        </field>
+        <field name="lastname" sortOrder="30" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">user</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Lastname</label>
+                <dataScope>lastname</dataScope>
+            </settings>
+        </field>
+        <field name="department" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">user</item>
+                </item>
+            </argument>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Goran\ResponsibleUsers\Model\Department\Source\DepartmentType"/>
+                    </settings>
+                </select>
+            </formElements>
+            <settings>
+                <dataType>text</dataType>
+                <visible>true</visible>
+            </settings>
+        </field>
+    </fieldset>
+    <fieldset name="related_products">
+        <settings>
+            <label translate="true">Related Products</label>
+        </settings>
+        <insertListing name="product_listing">
+            <settings>
+                <dataLinks>
+                    <exports>false</exports>
+                    <imports>true</imports>
+                </dataLinks>
+                <autoRender>true</autoRender>
+                <selectionsProvider>
+                    product_listing.product_listing.columns.ids
+                </selectionsProvider>
+                <dataScope>product_listing</dataScope>
+                <ns>product_listing</ns>
+                <imports>
+                    <link name="responsible_user">${ $.provider}:data.responsible_user</link>
+                </imports>
+            </settings>
+        </insertListing>
+    </fieldset>
+</form>
+

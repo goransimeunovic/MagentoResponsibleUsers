@@ -1,0 +1,38 @@
+<?xml version="1.0"?><!--
+/**
+ *
+ * Goran_Departments Magento 2 extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ *
+ * @category Goran
+ * @package Goran_Departments
+ * @copyright Copyright (c) 2022 Goran
+ * @license http://www.magento.com
+ * @author Goran Simeunovic
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="goran" translate="label" sortOrder="110">
+            <label>Goran</label>
+        </tab>
+        <section id="departments" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Departments</label>
+            <tab>goran</tab>
+            <resource>Goran_Departments::departments_config</resource>
+            <group id="departments_list" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>List of Departments</label>
+                <field id="department" translate="label" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Departments</label>
+                    <frontend_model>Goran\Departments\Block\Adminhtml\Form\Field\Departments</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
